@@ -117,22 +117,22 @@ st.write(f"こんにちは、{name}さん！")
 # ============================================
 # グラフ表示
 # ============================================
-# st.header("グラフの表示")
+st.header("グラフの表示")
 
-# ラインチャート
-# st.subheader("ラインチャート")
-# chart_data = pd.DataFrame(
-#     np.random.randn(20, 3),
-#     columns=['A', 'B', 'C'])
-# st.line_chart(chart_data)
+#ラインチャート
+st.subheader("ラインチャート")
+chart_data = pd.DataFrame(
+     np.random.randn(20, 3),
+     columns=['A', 'B', 'C'])
+st.line_chart(chart_data)
 
 # バーチャート
-# st.subheader("バーチャート")
-# chart_data = pd.DataFrame({
-#     'カテゴリ': ['A', 'B', 'C', 'D'],
-#     '値': [10, 25, 15, 30]
-# }).set_index('カテゴリ')
-# st.bar_chart(chart_data)
+st.subheader("バーチャート")
+chart_data = pd.DataFrame({
+     'カテゴリ': ['A', 'B', 'C', 'D'],
+     '値': [10, 25, 15, 30]
+ }).set_index('カテゴリ')
+st.bar_chart(chart_data)
 
 # ============================================
 # インタラクティブ機能
@@ -165,20 +165,20 @@ st.write(f"こんにちは、{name}さん！")
 # ============================================
 # カスタマイズ
 # ============================================
-# st.header("スタイルのカスタマイズ")
+st.header("スタイルのカスタマイズ")
 
-# カスタムCSS
-# st.markdown("""
-# <style>
-# .big-font {
-#     font-size:20px ！important;
-#     font-weight: bold;
-#     color: #0066cc;
-# }
-# </style>
-# """, unsafe_allow_html=True)
-# 
-# st.markdown('<p class="big-font">これはカスタムCSSでスタイリングされたテキストです！</p>', unsafe_allow_html=True)
+#カスタムCSS
+st.markdown("""
+<style>
+.big-font {
+    font-size:20px ！important;
+    font-weight: bold;
+    color: #0066cc;
+}
+</style>
+""", unsafe_allow_html=True)
+
+st.markdown('<p class="big-font">これはカスタムCSSでスタイリングされたテキストです！</p>', unsafe_allow_html=True)
 
 # ============================================
 # デモの使用方法
