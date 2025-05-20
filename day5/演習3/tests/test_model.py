@@ -19,6 +19,7 @@ MODEL_DIR = os.path.join(os.path.dirname(__file__), "../models")
 MODEL_PATH = os.path.join(MODEL_DIR, "titanic_model.pkl")
 ACCURACY_DIR = os.path.join(os.path.dirname(__file__), "accuracy")
 
+
 @pytest.fixture
 def sample_data():
     """テスト用データセットを読み込む"""
