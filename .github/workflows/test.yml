@@ -39,3 +39,20 @@ jobs:
     - name: Run model tests
       run: |
         pytest day5/演習3/tests/test_model.py -v
+
+    - name: Download previous accuracy
+      uses: actions/download-artifact@v4
+      with:
+        name: accuracy
+        path: day5/演習3/tests/accuracy/accuracy.txt
+      continue-on-error: true
+
+    - name: Compare accuracy
+      run: |
+        pytest day5/演習3/tests/test_accuracy.py -v
+      
+    - name: Upload accuracy
+      uses: actions/upload-artifact@v4
+      with:
+        name: accuracy
+        path: day5/演習3/tests/accuracy/accuracy.txt

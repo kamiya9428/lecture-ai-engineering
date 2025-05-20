@@ -11,11 +11,13 @@ from sklearn.impute import SimpleImputer
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 from sklearn.compose import ColumnTransformer
 from sklearn.pipeline import Pipeline
+import datetime
 
 # テスト用データとモデルパスを定義
 DATA_PATH = os.path.join(os.path.dirname(__file__), "../data/Titanic.csv")
 MODEL_DIR = os.path.join(os.path.dirname(__file__), "../models")
 MODEL_PATH = os.path.join(MODEL_DIR, "titanic_model.pkl")
+ACCURACY_DIR = os.path.join(os.path.dirname(__file__), "accuracy")
 
 
 @pytest.fixture
@@ -116,6 +118,13 @@ def test_model_accuracy(train_model):
     # 予測と精度計算
     y_pred = model.predict(X_test)
     accuracy = accuracy_score(y_test, y_pred)
+
+    # 日時付きファイル名で保存
+    dt_str = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+    os.makedirs(ACCURACY_DIR, exist_ok=True)
+    accuracy_path = os.path.join(ACCURACY_DIR, f"{dt_str}.txt")
+    with open(accuracy_path, "w") as f:
+        f.write(str(accuracy))
 
     # Titanicデータセットでは0.75以上の精度が一般的に良いとされる
     assert accuracy >= 0.75, f"モデルの精度が低すぎます: {accuracy}"
